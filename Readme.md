@@ -11,3 +11,7 @@
 $bundle install --path vendor/bundle
 $bundle exec ruby app.rb
 ```
+外部からアクセス可能にする。
+```
+$bundle exec ruby app.rb -e production
+```
