@@ -30,7 +30,7 @@ def delete_study(study)
     studies = get_studies
     file = File.open('core/studies.txt', 'w') #プロジェクトルートからのパス
     studies.delete(study) if studies.index(study) != nil #ほぼnilになることはない。
-    file.write(studies.join("\n"))
+    file.write(studies.join("\n")+"\n")
     file.close
   rescue => e
     return e
