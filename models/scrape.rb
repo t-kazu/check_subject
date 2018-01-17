@@ -25,7 +25,13 @@ end
 
 def get_subjects
   # 受講している科目
-  study = ["文化共生論", "システム創成システムⅢ"]
+  begin
+    file = File.open('core/study.txt') #プロジェクトルートからのパス
+    studies = file.read().split("\n")
+    file.close
+  rescue => e
+    return e
+  end
 
   # スクレイピング先のURL
   url = 'http://www.kougi.shimane-u.ac.jp/selectweb/conduct_list.asp'
@@ -39,7 +45,7 @@ def get_subjects
 
     doc.xpath('//tr').each do |item|
       subject = item.text.split("\r\n")[1..8]
-      subjects << Subject.new(subject) if subject[0] != '日付' && study.index(subject[4]) != nil
+      subjects << Subject.new(subject) if studies.index(subject[4]) != nil
     end
   end
 
