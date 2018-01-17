@@ -1,7 +1,9 @@
 <form action="delete" method="post">
-    <table border align="center">
+    <table border align="center" min-width="350" width="500">
         <caption>
-            <font size="5"><strong>授業登録</strong></font>
+            <font size="5"><strong>登録授業一覧</strong></font>
+            <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-delete-all">一括削除</button>
+            <button type="button" class="btn btn-primary pull-right">新規登録</button>
         </caption>
         <tr>
             <th width="80%">授業名</th><th width="20%">削除</th>
@@ -17,3 +19,31 @@
         <% end %>
     </table>
 </form>
+
+<!-- モーダルの配置 -->
+<div class="modal fade" id="modal-delete-all" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+
+        <!-- モーダルのコンテンツ -->
+        <div class="modal-content">
+            <!-- モーダルのヘッダ -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="modal-label">ダイアログ</h4>
+            </div>
+            <!-- モーダルのボディ -->
+            <div class="modal-body">
+                本当に一括削除してもよろしいですか？
+            </div>
+            <!-- モーダルのフッタ -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                <form action="delete_all" method="post">
+                    <button type="submit" class="btn btn-danger">一括削除</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

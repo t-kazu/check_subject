@@ -1,7 +1,7 @@
 # coding: utf-8
 Bundler.require
 
-require_relative 'models/scrape'
+require_relative 'models/init'
 
 get '/' do
   begin
@@ -29,8 +29,21 @@ end
 post '/delete' do
   #授業を削除します。
   begin
-    @study = params[:study]
-    delete_study(@study)
+    study = params[:study]
+    p study
+    #delete_study(params[:study])
+  rescue => e
+    puts %Q(class=[#{e.class}] message=[#{e.message}])
+    @error = '削除に失敗しました。'
+    erb :error
+  end
+  redirect to('/register')
+end
+
+post '/delete_all' do
+  #登録している授業を全て削除します。
+  begin
+    delete_all_study
   rescue => e
     puts %Q(class=[#{e.class}] message=[#{e.message}])
     @error = '削除に失敗しました。'

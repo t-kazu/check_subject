@@ -1,16 +1,5 @@
-table{text-align:center}
 th{
-    height:35px;
-    background-color:#bde9ba;
+    height: 35px;
+    background-color: #bde9ba;
 }
-td{height:30px}
-#left-box{
-float: left;
-Width: 20%;
-height: 100%
-}
-#right-box{
-float: right;
-Width: 80%;
-}
-body { padding-top: 70px; }
+td{height: 30px;}
