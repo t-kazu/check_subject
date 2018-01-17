@@ -26,6 +26,17 @@ get '/register' do
   end
 end
 
+post '/register' do
+   begin
+    register_study(params[:study])
+  rescue => e
+    puts %Q(class=[#{e.class}] message=[#{e.message}])
+    @error = 'データの取得に失敗しました。'
+    erb :error
+  end
+  redirect to('register')
+end
+
 post '/delete' do
   #授業を削除します。
   begin

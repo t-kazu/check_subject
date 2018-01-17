@@ -2,4 +2,7 @@ th{
     height: 35px;
     background-color: #bde9ba;
 }
-td{height: 30px;}
+td{
+    height: 30px;
+    text-align: center;
+}
