@@ -8,15 +8,15 @@
         <th width="90%">授業名</th><th width="10%">削除</th>
     </tr>
     <% @studies.each do |study| %>
-        <tr>
-            <td><%= study %></td>
-            <td>
-                <form action="delete" method="post">
+        <form action="delete" method="post">
+            <tr>
+                <td><%= study %></td>
+                <td>
                     <input type="hidden" name="study" value=<%= study %>>
                     <button type="submit" class="btn btn-primary">削除</button>
-                </form>
-            </td>
-        </tr>
+                </td>
+            </tr>
+        </form>
     <% end %>
 </table>
 
