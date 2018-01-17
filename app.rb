@@ -40,9 +40,7 @@ end
 post '/delete' do
   #授業を削除します。
   begin
-    study = params[:study]
-    p study
-    #delete_study(params[:study])
+    delete_study(params[:study])
   rescue => e
     puts %Q(class=[#{e.class}] message=[#{e.message}])
     @error = '削除に失敗しました。'

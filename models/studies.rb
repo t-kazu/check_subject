@@ -28,12 +28,9 @@ def delete_study(study)
   # 受講している科目を削除します。
   begin
     studies = get_studies
-    p studies
     file = File.open('core/studies.txt', 'w') #プロジェクトルートからのパス
-    p studies.index(study)
     studies.delete(study) if studies.index(study) != nil #ほぼnilになることはない。
-    p studies
-    #file.write(studies.join("\n"))
+    file.write(studies.join("\n"))
     file.close
   rescue => e
     return e

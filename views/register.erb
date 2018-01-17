@@ -1,24 +1,24 @@
-<form action="delete" method="post">
-    <table border align="center" min-width="350" width="500">
-        <caption>
-            <font size="5"><strong>登録授業一覧</strong></font>
-            <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-delete-all">一括削除</button>
-            <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-register">新規登録</button>
-        </caption>
+<table border align="center" min-width="350" width="500">
+    <caption>
+        <font size="5"><strong>登録授業一覧</strong></font>
+        <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-delete-all">一括削除</button>
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-register">新規登録</button>
+    </caption>
+    <tr>
+        <th width="90%">授業名</th><th width="10%">削除</th>
+    </tr>
+    <% @studies.each do |study| %>
         <tr>
-            <th width="90%">授業名</th><th width="10%">削除</th>
-        </tr>
-        <% @studies.each do |study| %>
-            <tr>
-                <td><%= study %></td>
-                <td>
+            <td><%= study %></td>
+            <td>
+                <form action="delete" method="post">
                     <input type="hidden" name="study" value=<%= study %>>
                     <button type="submit" class="btn btn-primary">削除</button>
-                </td>
-            </tr>
-        <% end %>
-    </table>
-</form>
+                </form>
+            </td>
+        </tr>
+    <% end %>
+</table>
 
 <!-- モーダルの配置 -->
 <div class="modal fade" id="modal-register" tabindex="-1">
