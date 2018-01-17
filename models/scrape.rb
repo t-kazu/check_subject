@@ -22,13 +22,36 @@ class Subject
 
 end
 
+def get_studies
+  # 受講している科目
+  begin
+    file = File.open('core/study.txt','r') #プロジェクトルートからのパス
+    studies = file.read().split("\n")
+    file.close
+  rescue => e
+    return e
+  end
+  studies
+end
+
+def delete_study(study)
+  # 受講している科目
+  begin
+    file = File.open('core/study.txt', 'w+') #プロジェクトルートからのパス
+    studies = file.read().split("\n")
+    studies.delete(study) if studies.index(study) == nil #ほぼnilになることはない。
+    file.write(studies.join("\n"))
+    file.close
+  rescue => e
+    return e
+  end
+  studies
+end
 
 def get_subjects
   # 受講している科目
   begin
-    file = File.open('core/study.txt') #プロジェクトルートからのパス
-    studies = file.read().split("\n")
-    file.close
+    studies = get_studies
   rescue => e
     return e
   end

@@ -1,0 +1,19 @@
+<form action="delete" method="post">
+    <table border align="center">
+        <caption>
+            <font size="5"><strong>授業登録</strong></font>
+        </caption>
+        <tr>
+            <th width="80%">授業名</th><th width="20%">削除</th>
+        </tr>
+        <% @studies.each do |study| %>
+            <tr>
+                <td><%= study %></td>
+                <td>
+                    <input type="hidden" name="study" value=<%= study %>>
+                    <button type="submit" class="btn btn-primary">削除</button>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</form>
