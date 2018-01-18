@@ -31,7 +31,7 @@ post '/register' do
     register_study(params[:study])
   rescue => e
     puts %Q(class=[#{e.class}] message=[#{e.message}])
-    @error = 'データの取得に失敗しました。'
+    @error = '登録に失敗しました。'
     erb :error
   end
   redirect to('register')
